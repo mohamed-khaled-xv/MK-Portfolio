@@ -74,23 +74,23 @@ const HeroText = () => {
         initial="hidden"
         whileInView="show"
         viewport={{ once: false, amount: 0 }}
-        className="flex gap-4 mt-6 sm:mt-4 md:mt-10 md:self-start sm:self-center"
+        className="flex gap-4 mt-6 sm:mt-0 md:mt-10 md:self-start sm:self-center"
       >
         <a
           href="#projects"
-          className="border border-primaryblue rounded-full py-2 px-4 text-lg flex gap-2 items-center hover:bg-primaryblue transition-all duration-500 cursor-pointer text-white"
+          className="border border-primaryblue rounded-full py-2 px-4 text-lg flex gap-2 items-center hover:bg-primaryblue transition-all duration-500 cursor-pointer text-white whitespace-nowrap"
         >
-          <FaFolderOpen className="text-xl" />
           My Projects
+          <FaFolderOpen className="text-xl" />
         </a>
         <a
           href="https://drive.google.com/file/d/1UhBh0um6v2HNUiimgBRFLpZLh91ecs_0/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
-          className="border border-primaryblue rounded-full py-2 px-4 text-lg flex gap-2 items-center hover:bg-primaryblue transition-all duration-500 cursor-pointer text-white"
+          className="border border-primaryblue rounded-full py-2 px-4 text-lg flex gap-2 items-center hover:bg-primaryblue transition-all duration-500 cursor-pointer text-white whitespace-nowrap"
         >
-          <FaRegFilePdf className="text-xl" />
           Preview Resume
+          <FaRegFilePdf className="text-xl" />
         </a>
       </motion.div>
     </div>
