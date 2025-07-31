@@ -77,7 +77,7 @@ const SingleProject = ({ name, year, align, image, project, onProjectClick }) =>
         onClick={() => onProjectClick(project)}
       >
         <div className="w-full h-fulltransition-all duration-500 md:block sm:hidden"></div>
-        <img src={image} alt="website image" className="w-full h-full" />
+        <img src={image} alt="website image" className="w-full h-full" loading="lazy" />
       </div>
     </motion.div>
   );

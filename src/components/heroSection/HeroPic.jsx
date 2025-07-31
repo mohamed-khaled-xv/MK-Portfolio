@@ -16,9 +16,10 @@ const HeroPic = () => {
         {/* Static content container */}
         <div className="relative p-1">
           <img
-            src="/images/Profile_Resume.png"
+            src="/images/Profile_Resume.jpg"
             alt="Mohamed Khaled"
             className="max-h-[450px] w-auto relative z-10 rounded-xl shadow-2xl"
+            loading="eager"
           />
         </div>
       </div>

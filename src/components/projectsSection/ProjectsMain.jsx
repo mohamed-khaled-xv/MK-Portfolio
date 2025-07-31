@@ -45,9 +45,9 @@ const projects = [
     name: "Movie Discovery Mobile App",
     year: "2025",
     align: "left",
-    image: "/images/Project-2/Project-2.png",
+    image: "/images/Project-2/Project-2.jpg",
     screenshots: [
-      "/images/Project-2/Project-2.png",
+      "/images/Project-2/Project-2.jpg",
       "/images/Project-2/1.jpeg",
       "/images/Project-2/2.jpeg",
       "/images/Project-2/3.jpeg",
@@ -144,6 +144,17 @@ const ProjectsMain = () => {
       });
     }
   }, [selectedScreenshot, selectedProject]);
+
+  // Preload critical images when project modal opens
+  useEffect(() => {
+    if (selectedProject) {
+      // Preload the first few screenshots for faster navigation
+      selectedProject.screenshots.slice(0, 3).forEach(src => {
+        const img = new Image();
+        img.src = src;
+      });
+    }
+  }, [selectedProject]);
 
   const openProjectModal = (project) => {
     setSelectedProject(project);
@@ -269,6 +280,7 @@ const ProjectsMain = () => {
                         src={selectedProject.screenshots[selectedScreenshot]} 
                         alt={`${selectedProject.name} screenshot ${selectedScreenshot + 1}`}
                         className="relative w-full max-h-[50vh] object-contain rounded-lg z-20"
+                        loading="eager"
                       />
                     </div>
 
@@ -308,6 +320,7 @@ const ProjectsMain = () => {
                       src={selectedProject.screenshots[selectedScreenshot]} 
                       alt={`${selectedProject.name} screenshot ${selectedScreenshot + 1}`}
                       className="relative w-full max-h-[70vh] object-contain rounded-lg z-20"
+                      loading="eager"
                     />
                     
                     {/* Navigation Arrows - Desktop Only */}
@@ -360,6 +373,7 @@ const ProjectsMain = () => {
                             : 'border-bordergray opacity-70 hover:opacity-100'
                         }`}
                         onClick={() => setSelectedScreenshot(index)}
+                        loading="lazy"
                       />
                     ))}
                   </div>
