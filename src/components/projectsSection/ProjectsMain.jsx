@@ -10,25 +10,25 @@ const projects = [
     name: "AI Assisted Holy Quran Mobile App",
     year: "2025",
     align: "right",
-    image: "../../public/images/Project-1/Project-1.jpg",
+    image: "/images/Project-1/Project-1.jpg",
     screenshots: [
-      "../../public/images/Project-1/Project-1.jpg",
-      "../../public/images/Project-1/home-1.jpeg",
-      "../../public/images/Project-1/Mushaf-1.jpeg",
-      "../../public/images/Project-1/azkar-1.jpeg",
-      "../../public/images/Project-1/azkar-2.jpeg",
-      "../../public/images/Project-1/azkar-3.jpeg",
-      "../../public/images/Project-1/azkar-4.jpeg",
-      "../../public/images/Project-1/bookmarks-1.jpeg",
-      "../../public/images/Project-1/boomarks-2.jpeg",
-      "../../public/images/Project-1/login-1.jpeg",
-      "../../public/images/Project-1/login-2.jpeg",
-      "../../public/images/Project-1/qiblah-1.jpeg",
-      "../../public/images/Project-1/qiblah-2.jpeg",
-      "../../public/images/Project-1/qiblah-3.jpeg",
-      "../../public/images/Project-1/quiz-1.jpeg",
-      "../../public/images/Project-1/quiz-2.jpeg",
-      "../../public/images/Project-1/quiz-3.jpeg"
+      "/images/Project-1/Project-1.jpg",
+      "/images/Project-1/home-1.jpeg",
+      "/images/Project-1/Mushaf-1.jpeg",
+      "/images/Project-1/azkar-1.jpeg",
+      "/images/Project-1/azkar-2.jpeg",
+      "/images/Project-1/azkar-3.jpeg",
+      "/images/Project-1/azkar-4.jpeg",
+      "/images/Project-1/bookmarks-1.jpeg",
+      "/images/Project-1/boomarks-2.jpeg",
+      "/images/Project-1/login-1.jpeg",
+      "/images/Project-1/login-2.jpeg",
+      "/images/Project-1/qiblah-1.jpeg",
+      "/images/Project-1/qiblah-2.jpeg",
+      "/images/Project-1/qiblah-3.jpeg",
+      "/images/Project-1/quiz-1.jpeg",
+      "/images/Project-1/quiz-2.jpeg",
+      "/images/Project-1/quiz-3.jpeg"
     ],
     link: "https://www.youtube.com/shorts/Qakl_oXfRgM", // Add your YouTube demo link here
     githubLink: "https://github.com/Karim-308/jawwed-mobile", // Add your GitHub repo link here
@@ -45,17 +45,17 @@ const projects = [
     name: "Movie Discovery Mobile App",
     year: "2025",
     align: "left",
-    image: "../../public/images/Project-2/Project-2.png",
+    image: "/images/Project-2/Project-2.png",
     screenshots: [
-      "../../public/images/Project-2/Project-2.png",
-      "../../public/images/Project-2/1.jpeg",
-      "../../public/images/Project-2/2.jpeg",
-      "../../public/images/Project-2/3.jpeg",
-      "../../public/images/Project-2/4.jpeg",
-      "../../public/images/Project-2/5.jpeg",
-      "../../public/images/Project-2/6.jpeg",
-      "../../public/images/Project-2/7.jpeg",
-      "../../public/images/Project-2/8.jpeg"
+      "/images/Project-2/Project-2.png",
+      "/images/Project-2/1.jpeg",
+      "/images/Project-2/2.jpeg",
+      "/images/Project-2/3.jpeg",
+      "/images/Project-2/4.jpeg",
+      "/images/Project-2/5.jpeg",
+      "/images/Project-2/6.jpeg",
+      "/images/Project-2/7.jpeg",
+      "/images/Project-2/8.jpeg"
     ],
     link: "https://www.youtube.com/shorts/OA6SAqSB3pM", // Add your YouTube demo link here
     githubLink: "https://github.com/mohamed-khaled-xv/SceneStack", // Add your GitHub repo link here
@@ -72,10 +72,10 @@ const projects = [
     name: "Student Grades Management System",
     year: "2024",
     align: "right",
-    image: "../../public/images/Project-3/Project-2.png",
+    image: "/images/Project-3/Project-2.png",
     screenshots: [
-      "../../public/images/Project-3/1.jpeg",
-      "../../public/images/Project-3/2.jpeg",
+      "/images/Project-3/1.jpeg",
+      "/images/Project-3/2.jpeg",
     ],
     link: "https://drive.google.com/file/d/1I3JjiWXFuXkj8HXIkNDOMPVnVZPPNZx6/view?usp=sharing",
     githubLink: "https://github.com/ShoroukHegazy15/student_grades_testing", // Add your GitHub repo link here
@@ -91,14 +91,14 @@ const projects = [
     name: "Gobblet Board Game with AI Player",
     year: "2024",
     align: "left",
-    image: "../../public/images/Project-4/Project-4.jpg",
+    image: "/images/Project-4/Project-4.jpg",
     screenshots: [
-      "../../public/images/Project-4/Project-4.jpg",
-      "../../public/images/Project-4/1.png",
-      "../../public/images/Project-4/2.png",
-      "../../public/images/Project-4/3.png",
-      "../../public/images/Project-4/4.png",
-      "../../public/images/Project-4/5.png"
+      "/images/Project-4/Project-4.jpg",
+      "/images/Project-4/1.png",
+      "/images/Project-4/2.png",
+      "/images/Project-4/3.png",
+      "/images/Project-4/4.png",
+      "/images/Project-4/5.png"
     ],
     link: "https://www.youtube.com/watch?v=fIVzeX9LMyg", // Add your YouTube demo link here
     githubLink: "https://github.com/mostsfamahmoud/Gobblet-AI-Player", // Add your GitHub repo link here
