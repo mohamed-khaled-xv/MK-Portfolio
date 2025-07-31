@@ -51,7 +51,7 @@ const skills = [
 
 const AllSkillsSM = () => {
   return (
-    <div className="grid md:grid-cols-4 sm:grid-cols-2 gap-12 my-12">
+    <div className="grid md:grid-cols-4 sm:grid-cols-3 gap-12 my-12">
       {skills.map((item, index) => {
         return (
           <motion.div
@@ -63,7 +63,7 @@ const AllSkillsSM = () => {
             className="flex flex-col items-center relative group cursor-pointer"
           >
             {/* Pulsing background effect */}
-            <div className="absolute inset-x-5 -inset-y-2 rounded-2xl bg-primaryblue opacity-20 animate-pulse group-hover:bg-successgreen group-hover:animate-pulse transition-all duration-1000"></div>
+            <div className="absolute -inset-x-2 -inset-y-3 rounded-2xl bg-primaryblue opacity-20 animate-pulse group-hover:bg-successgreen group-hover:animate-pulse transition-all duration-1000"></div>
             
             <item.icon className="text-7xl text-orange group-hover:text-successgreen transition-colors duration-300 relative z-10" />
             <p className="text-center mt-4 text-orange group-hover:text-successgreen transition-colors duration-300 relative z-10">{item.skill}</p>
