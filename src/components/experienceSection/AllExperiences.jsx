@@ -1,6 +1,5 @@
 
-
-import { FaRegFilePdf } from "react-icons/fa";
+import { PiCertificate } from "react-icons/pi";
 
 const AllExperiences = () => {
   return (
@@ -27,8 +26,8 @@ const AllExperiences = () => {
           rel="noopener noreferrer"
           className="border border-primaryblue rounded-full py-2 px-4 text-lg flex gap-2 items-center hover:bg-primaryblue transition-all duration-500 cursor-pointer text-white"
         >
-          <FaRegFilePdf className="text-lg" />
           Preview Certificate
+          <PiCertificate className="text-[28px]" />
         </a>
       </div>
     </div>
