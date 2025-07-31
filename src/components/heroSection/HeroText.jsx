@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { FaFolderOpen } from "react-icons/fa";
 import { FaRegFilePdf } from "react-icons/fa";
 
-const titles = ["React Native Developer", "Cross-Platform Mobile Developer","Frontend Developer"];
+const titles = ["React Native Developer","Frontend Developer"];
 
 import PropTypes from "prop-types";
 

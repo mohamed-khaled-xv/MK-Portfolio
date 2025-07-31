@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import ProjectsText from "./ProjectsText";
 import SingleProject from "./SingleProject";
 import { motion } from "framer-motion";
@@ -115,6 +115,7 @@ const projects = [
 const ProjectsMain = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedScreenshot, setSelectedScreenshot] = useState(0);
+  const thumbnailScrollRef = useRef(null);
 
   // Prevent body scroll when modal is open
   useEffect(() => {
@@ -129,6 +130,20 @@ const ProjectsMain = () => {
       document.body.style.overflow = 'unset';
     };
   }, [selectedProject]);
+
+  // Auto-scroll thumbnails when screenshot changes
+  useEffect(() => {
+    if (thumbnailScrollRef.current && selectedProject) {
+      const thumbnailWidth = 96; // Width of each thumbnail (w-24 = 96px)
+      const gap = 12; // Gap between thumbnails (gap-3 = 12px)
+      const scrollPosition = selectedScreenshot * (thumbnailWidth + gap);
+      
+      thumbnailScrollRef.current.scrollTo({
+        left: scrollPosition,
+        behavior: 'smooth'
+      });
+    }
+  }, [selectedScreenshot, selectedProject]);
 
   const openProjectModal = (project) => {
     setSelectedProject(project);
@@ -195,7 +210,7 @@ const ProjectsMain = () => {
       {/* Project Details Modal */}
       {selectedProject && (
         <div 
-          className="fixed inset-0 flex items-center justify-center z-50 p-2 sm:p-4 bg-black bg-opacity-50"
+          className="fixed inset-0 flex items-center justify-center z-50 p-2 sm:p-2 bg-black bg-opacity-50"
           onClick={closeProjectModal}
           style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
         >
@@ -209,7 +224,7 @@ const ProjectsMain = () => {
             <div className="relative">
               <button
                 onClick={closeProjectModal}
-                className="absolute top-1 right-2 sm:top-2 sm:right-4 text-white hover:text-cyan transition-colors z-10 p-2"
+                className="absolute top-2 right-2 text-white hover:text-cyan transition-colors z-10 p-2"
               >
                 <FaTimes size={20} className="sm:text-2xl" />
               </button>
@@ -217,63 +232,123 @@ const ProjectsMain = () => {
               <div className="p-3 sm:p-6">
                 {/* Main Screenshot Display */}
                 <div className="mb-4 sm:mb-6 relative p-2 sm:p-4 bg-gray-800 rounded-xl">
-                  {/* Blurred Background */}
-                  <div 
-                    className="absolute inset-2 sm:inset-4 rounded-lg overflow-hidden"
-                    style={{
-                      backgroundImage: `url(${selectedProject.screenshots[selectedScreenshot]})`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                      filter: 'blur(20px)',
-                      transform: 'scale(1.1)',
-                      zIndex: 1
-                    }}
-                  ></div>
-                  
-                  {/* Dark overlay for better contrast */}
-                  <div className="absolute inset-2 sm:inset-4 bg-black bg-opacity-60 rounded-lg z-10"></div>
-                  
-                  <img 
-                    src={selectedProject.screenshots[selectedScreenshot]} 
-                    alt={`${selectedProject.name} screenshot ${selectedScreenshot + 1}`}
-                    className="relative w-full max-h-[50vh] sm:max-h-[70vh] object-contain rounded-lg z-20"
-                  />
-                  
-                  {/* Navigation Arrows */}
-                  {selectedProject.screenshots.length > 1 && (
-                    <>
-                      {/* Left Arrow */}
-                      <button
-                        onClick={prevScreenshot}
-                        disabled={selectedScreenshot === 0}
-                        className={`absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 px-2 py-2 sm:px-4 sm:py-3 rounded-lg transition-all duration-200 z-20 shadow-lg ${
-                          selectedScreenshot === 0 
-                            ? 'bg-lightblue opacity-30 cursor-not-allowed' 
-                            : 'bg-lightblue opacity-90 hover:opacity-100 active:bg-gray-700 active:opacity-90 hover:bg-primaryblue'
-                        }`}
-                      >
-                        <FaChevronLeft className="text-white text-sm sm:text-lg" />
-                      </button>
+                  {/* Mobile Layout: Buttons beside screenshot */}
+                  <div className="sm:hidden flex items-center gap-2">
+                    {/* Left Arrow - Mobile */}
+                    <button
+                      onClick={prevScreenshot}
+                      disabled={selectedScreenshot === 0}
+                      className={`px-1 py-1 rounded-lg transition-all duration-200 shadow-lg flex-shrink-0 ${
+                        selectedScreenshot === 0 
+                          ? 'bg-darkgray opacity-30 cursor-not-allowed' 
+                          : 'bg-lightblue opacity-80 hover:opacity-60 active:opacity-100 active:bg-primaryblue hover:bg-lightblue'
+                      }`}
+                    >
+                      <FaChevronLeft className="text-white text-sm opacity-100" />
+                    </button>
+
+                    {/* Screenshot Container - Mobile */}
+                    <div className="flex-1 relative">
+                      {/* Blurred Background - Mobile */}
+                      <div 
+                        className="absolute inset-0 rounded-lg overflow-hidden"
+                        style={{
+                          backgroundImage: `url(${selectedProject.screenshots[selectedScreenshot]})`,
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center',
+                          filter: 'blur(20px)',
+                          transform: 'scale(1.1)',
+                          zIndex: 1
+                        }}
+                      ></div>
                       
-                      {/* Right Arrow */}
-                      <button
-                        onClick={nextScreenshot}
-                        disabled={selectedScreenshot === selectedProject.screenshots.length - 1}
-                        className={`absolute right-1 sm:right-4 top-1/2 -translate-y-1/2 px-2 py-2 sm:px-4 sm:py-3 rounded-lg transition-all duration-200 z-20 shadow-lg ${
-                          selectedScreenshot === selectedProject.screenshots.length - 1
-                            ? 'bg-lightblue opacity-30 cursor-not-allowed' 
-                            : 'bg-lightblue opacity-90 hover:opacity-100 active:bg-gray-700 active:opacity-90 hover:bg-primaryblue'
-                        }`}
-                      >
-                        <FaChevronRight className="text-white text-sm sm:text-lg" />
-                      </button>
-                    </>
-                  )}
+                      {/* Dark overlay - Mobile */}
+                      <div className="absolute inset-0 bg-black bg-opacity-90 rounded-lg z-10"></div>
+                      
+                      <img 
+                        src={selectedProject.screenshots[selectedScreenshot]} 
+                        alt={`${selectedProject.name} screenshot ${selectedScreenshot + 1}`}
+                        className="relative w-full max-h-[50vh] object-contain rounded-lg z-20"
+                      />
+                    </div>
+
+                    {/* Right Arrow - Mobile */}
+                    <button
+                      onClick={nextScreenshot}
+                      disabled={selectedScreenshot === selectedProject.screenshots.length - 1}
+                      className={`px-1 py-1 rounded-lg transition-all duration-200 shadow-lg flex-shrink-0 ${
+                        selectedScreenshot === selectedProject.screenshots.length - 1
+                          ? 'bg-darkgray opacity-30 cursor-not-allowed' 
+                          : 'bg-lightblue opacity-80 hover:opacity-60 active:opacity-100 active:bg-primaryblue hover:bg-lightblue'
+                      }`}
+                    >
+                      <FaChevronRight className="text-white text-sm opacity-100" />
+                    </button>
+                  </div>
+
+                  {/* Desktop Layout: Buttons overlapping screenshot */}
+                  <div className="hidden sm:block relative">
+                    {/* Blurred Background - Desktop */}
+                    <div 
+                      className="absolute inset-0 rounded-lg overflow-hidden"
+                      style={{
+                        backgroundImage: `url(${selectedProject.screenshots[selectedScreenshot]})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        filter: 'blur(20px)',
+                        transform: 'scale(1.1)',
+                        zIndex: 1
+                      }}
+                    ></div>
+                    
+                    {/* Dark overlay - Desktop */}
+                    <div className="absolute inset-0 bg-black bg-opacity-60 rounded-lg z-10"></div>
+                    
+                    <img 
+                      src={selectedProject.screenshots[selectedScreenshot]} 
+                      alt={`${selectedProject.name} screenshot ${selectedScreenshot + 1}`}
+                      className="relative w-full max-h-[70vh] object-contain rounded-lg z-20"
+                    />
+                    
+                    {/* Navigation Arrows - Desktop Only */}
+                    {selectedProject.screenshots.length > 1 && (
+                      <>
+                        {/* Left Arrow - Desktop */}
+                        <button
+                          onClick={prevScreenshot}
+                          disabled={selectedScreenshot === 0}
+                          className={`absolute left-4 top-1/2 -translate-y-1/2 px-2 py-2 rounded-lg transition-all duration-200 z-20 shadow-lg ${
+                            selectedScreenshot === 0 
+                              ? 'bg-darkgray opacity-30 cursor-not-allowed' 
+                              : 'bg-lightblue opacity-70 hover:opacity-60 active:opacity-100 active:bg-primaryblue hover:bg-lightblue'
+                          }`}
+                        >
+                          <FaChevronLeft className="text-white text-lg opacity-100" />
+                        </button>
+                        
+                        {/* Right Arrow - Desktop */}
+                        <button
+                          onClick={nextScreenshot}
+                          disabled={selectedScreenshot === selectedProject.screenshots.length - 1}
+                          className={`absolute right-4 top-1/2 -translate-y-1/2 px-2 py-2 rounded-lg transition-all duration-200 z-20 shadow-lg ${
+                            selectedScreenshot === selectedProject.screenshots.length - 1
+                              ? 'bg-darkgray opacity-30 cursor-not-allowed' 
+                              : 'bg-lightblue opacity-70 hover:opacity-60 active:opacity-100 active:bg-primaryblue hover:bg-lightblue'
+                          }`}
+                        >
+                          <FaChevronRight className="text-white text-lg opacity-100" />
+                        </button>
+                      </>
+                    )}
+                  </div>
                 </div>
                 
                 {/* Screenshot Thumbnails */}
                 <div className="mb-4 sm:mb-6">
-                  <div className="flex gap-2 sm:gap-3 overflow-x-auto pb-2 custom-scrollbar">
+                  <div 
+                    ref={thumbnailScrollRef}
+                    className="flex gap-2 sm:gap-3 overflow-x-auto pb-2 custom-scrollbar"
+                  >
                     {selectedProject.screenshots.map((screenshot, index) => (
                       <img
                         key={index}
