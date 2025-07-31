@@ -420,17 +420,17 @@ const ProjectsMain = () => {
                       href={selectedProject.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 px-4 py-2 sm:px-6 sm:py-2 border border-cyan text-cyan rounded-lg hover:bg-cyan hover:text-white transition-colors text-sm sm:text-base"
+                      className="flex items-center justify-center gap-2 px-4 py-3 sm:px-6 sm:py-2 border border-cyan text-cyan rounded-lg hover:bg-cyan hover:text-white transition-colors text-base sm:text-base whitespace-nowrap"
                     >
                       {selectedProject.buttonType === "document" ? (
                         <>
                           Preview Document
-                          <FaFileAlt size={16} className="sm:text-lg" />
+                          <FaFileAlt size={18} className="sm:text-lg" />
                         </>
                       ) : (
                         <>
                           Live Demo
-                          <FaYoutube size={16} className="sm:text-lg" />
+                          <FaYoutube size={18} className="sm:text-lg" />
                         </>
                       )}
                     </a>
@@ -438,10 +438,10 @@ const ProjectsMain = () => {
                       href={selectedProject.githubLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 px-4 py-2 sm:px-6 sm:py-2 border border-cyan text-cyan rounded-lg hover:bg-cyan hover:text-white transition-colors text-sm sm:text-base"
+                      className="flex items-center justify-center gap-2 px-4 py-3 sm:px-6 sm:py-2 border border-cyan text-cyan rounded-lg hover:bg-cyan hover:text-white transition-colors text-base sm:text-base whitespace-nowrap"
                     >
                       Source Code
-                      <FaGithub size={16} className="sm:text-lg" />
+                      <FaGithub size={18} className="sm:text-lg" />
                     </a>
                   </div>
                 </div>
