@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-deepgray;
+}
+
+/* Use HEX color for custom CSS, not theme() */
+.animate-tap {
+  transform: scale(0.85);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #0E7490; /* Replace with your deepcyan hex code */
+  color: white;
+}
+
+@keyframes sharp-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 #22d3ee, 0 0 0 0 #60a5fa;
+    border-color: #22d3ee;
+    opacity: 1;
+  }
+  50% {
+    box-shadow: 0 0 0 8px #22d3ee33, 0 0 0 16px #60a5fa22;
+    border-color: #60a5fa;
+    opacity: 1;
+  }
+}
+.pulse-border {
+  animation: sharp-pulse 1.8s infinite;
+}
+
+@keyframes sharp-pulse-gray {
+  0%, 100% {
+    box-shadow: 0 0 0 0 #64748b, 0 0 0 0 #cbd5e1;
+    border-color: #64748b;
+    opacity: 1;
+  }
+  50% {
+    box-shadow: 0 0 0 8px #64748b33, 0 0 0 16px #cbd5e155;
+    border-color: #cbd5e1;
+    opacity: 1;
+  }
+}
+.pulse-border-gray {
+  animation: sharp-pulse-gray 1.8s infinite !important;
+}
+
+@keyframes sharp-pulse-green {
+  0%, 100% {
+    box-shadow: 0 0 0 0 #22c55e, 0 0 0 0 #16a34a;
+    border-color: #22c55e;
+    opacity: 1;
+  }
+  50% {
+    box-shadow: 0 0 0 8px #22c55e33, 0 0 0 16px #16a34a22;
+    border-color: #16a34a;
+    opacity: 1;
+  }
+}
+.pulse-border-green {
+  animation: sharp-pulse-green 1.8s infinite !important;
+}
+
+/* Custom Scrollbar for Project Modal */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #0891b2 transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px !important;
+  height: 6px !important;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent !important;
+  border-radius: 3px !important;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #0891b2 !important;
+  border-radius: 3px !important;
+  transition: all 0.3s ease !important;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #06b6d4 !important;
+}
+
+.custom-scrollbar::-webkit-scrollbar-corner {
+  background: transparent !important;
+}
+
+/* Global Custom Scrollbar for Entire Website */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #0891b2 transparent;
+}
+
+html::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent !important;
+  border-radius: 4px !important;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #0891b2 !important;
+  border-radius: 4px !important;
+  transition: all 0.3s ease !important;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: #06b6d4 !important;
+}
+
+html::-webkit-scrollbar-corner {
+  background: transparent !important;
+}
+
+body::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent !important;
+  border-radius: 4px !important;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #0891b2 !important;
+  border-radius: 4px !important;
+  transition: all 0.3s ease !important;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #06b6d4 !important;
+}
+
+body::-webkit-scrollbar-corner {
+  background: transparent !important;
+}
