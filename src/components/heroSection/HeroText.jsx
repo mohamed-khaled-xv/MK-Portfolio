@@ -84,7 +84,7 @@ const HeroText = () => {
           <FaFolderOpen className="text-xl" />
         </a>
         <a
-          href="https://drive.google.com/file/d/1UhBh0um6v2HNUiimgBRFLpZLh91ecs_0/view?usp=sharing"
+          href="https://drive.google.com/file/d/1l8E9aYG9VuAsNq1dojbq22cKYIcOVuSP/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
           className="border border-primaryblue rounded-full py-2 px-4 text-lg flex gap-2 items-center hover:bg-primaryblue transition-all duration-500 cursor-pointer text-white whitespace-nowrap"
